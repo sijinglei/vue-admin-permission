@@ -1,18 +1,9 @@
 <template>
   <div class="app-container">
     <el-row>
-      <el-button type="primary" @click="isShowAddRole = true"
-        >添加角色</el-button
-      >
+      <el-button type="primary" @click="isShowAddRole = true">添加角色</el-button>
     </el-row>
-    <el-table
-      v-loading="listLoading"
-      :data="list"
-      element-loading-text="Loading"
-      border
-      fit
-      highlight-current-row
-    >
+    <el-table v-loading="listLoading" :data="list" element-loading-text="Loading" border fit highlight-current-row>
       <el-table-column align="center" label="ID" width="95">
         <template slot-scope="scope">
           {{ scope.$index }}
@@ -28,12 +19,7 @@
           <span>{{ scope.row.author }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        class-name="status-col"
-        label="是否启用"
-        width="110"
-        align="center"
-      >
+      <el-table-column class-name="status-col" label="是否启用" width="110" align="center">
         <template slot-scope="scope">
           <!-- <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag> -->
           <el-switch v-model="scope.row.status"></el-switch>
@@ -47,27 +33,14 @@
       </el-table-column>
       <el-table-column align="center" prop="created_at" label="操作">
         <template slot-scope="scope">
-          <el-button type="primary" size="small"
-            >编辑<i class="el-icon-edit"></i
-          ></el-button>
-          <el-button type="danger" size="small"
-            >删除<i class="el-icon-delete"></i
-          ></el-button>
-          <el-button type="warning" size="small" @click="setRole()"
-            >分配权限<i class="el-icon-setting"></i
-          ></el-button>
+          <el-button type="primary" size="small">编辑<i class="el-icon-edit"></i></el-button>
+          <el-button type="danger" size="small">删除<i class="el-icon-delete"></i></el-button>
+          <el-button type="warning" size="small" @click="setRole()">分配权限<i class="el-icon-setting"></i></el-button>
         </template>
       </el-table-column>
     </el-table>
-    <add-role
-      ref="setRoles"
-      :dialogRoleVisible="isShowSetRole"
-      @onCancel="isShowAddRole = false"
-    ></add-role>
-    <set-role
-      :dialogRoleVisible="isShowSetRole"
-      @onCancel="isShowSetRole = false"
-    ></set-role>
+    <add-role ref="setRoles" :dialogRoleVisible="isShowAddRole" @onCancel="isShowAddRole = false"></add-role>
+    <set-role :dialogRoleVisible="isShowSetRole" @onCancel="isShowSetRole = false"></set-role>
   </div>
 </template>
 

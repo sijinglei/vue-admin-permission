@@ -39,13 +39,13 @@
         </template>
       </el-table-column>
     </el-table>
-    <add-role :dialogRoleVisible="isShowAddRole" @onCancel="isShowAddRole=false"></add-role>
+    <add-menu :dialogRoleVisible="isShowAddRole" @onCancel="isShowAddRole=false"></add-menu>
   </div>
 </template>
 
 <script>
 // import { getList } from '@/api/table'
-import addRole from './components/add-role'
+import addMenu from './components/add-menu'
 export default {
   filters: {
     statusFilter(status) {
@@ -58,7 +58,7 @@ export default {
     }
   },
   components: {
-    addRole
+    addMenu
   },
   data() {
     return {
